@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="container-fluid elegant-color-dark">
+    <div class="jumbotron jumbotron-fluid elegant-color-dark">
+        <div class="container">
+            <h2 class="display-4 text-white">Netflix Clone</h2>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+    </div>
+    <h3 class="text-white">Popular on netflix</h3>
+    <div class="row">
+        {%for data in popular.results%}
+        <div class=" m-1">
+            <a href='youtube/{{data.id}}'>
+                <img class="" src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" width="150px"
+                    alt="Card image cap">
+            </a>
+        </div>
+        {%endfor%}
+    </div>
+    <h3 class="text-white">Upcoming ones</h3>
+    <div class="row">
+        {%for data in upcoming.results%}
+        <div class="card m-1">
+            <img src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" width="150px" alt="image">
+        </div>
+        {%endfor%}
+    </div>
+    <h3 class="text-white">Latest</h3>
+    {%for data in latest.results%}
+    <p>{{data.original_title}}</p>
+    <img src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" width="150px" alt="image">
+    {%endfor%}
+    <h3 class="text-white">Top rated</h3>
+    <div class="row">
+        {%for data in toprated.results%}
+        <div class="card m-1">
+            <img src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" width="150px" alt="image">
+        </div>
+        {%endfor%}
+    </div>
+
+    {%endblock%}
+</div>
